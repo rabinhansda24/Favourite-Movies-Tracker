@@ -9,6 +9,10 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 import SplashScreen from '../pages/SplashScreen';
 import SigninScreen from '../pages/users/SigninScreen';
+import MoviesHomeScreen from '../pages/movies/moviesHomePage';
+import MovieDetailsScreen from '../pages/movies/movieDetails';
+import MoviesLikedScreen from '../pages/movies/moviesLiked';
+
 
 import Icon from '../components/Icon';
 import theme from '../theme';
@@ -51,7 +55,7 @@ const HomeStack = () => {
         >
             <Stack.Screen
                 name="Home"
-                component={HomeScreen}
+                component={MoviesHomeScreen}
                 options={{ title: 'Home Page' }}
             />
         </Stack.Navigator>
@@ -66,7 +70,7 @@ const LikedStack = () => {
         >
             <Stack.Screen
                 name="Liked"
-                component={SettingsScreen}
+                component={MoviesLikedScreen}
                 options={{ title: 'Liked' }}
             />
         </Stack.Navigator>
