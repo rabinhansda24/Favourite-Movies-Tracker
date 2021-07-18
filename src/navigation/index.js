@@ -174,7 +174,7 @@ const BottomTabNavigator = () => {
                     if (route.name === 'HomeStack') {
                         iconName = 'home'
                     } else if (route.name === 'LikedStack') {
-                        iconName = 'ios-settings-outline'
+                        iconName = 'heart'
                     } else {
                         iconName = 'setting'
                     }
