@@ -9,8 +9,10 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { store, persistor } from './src/redux/store';
 
+import theme from './src/theme';
 
-import MainNav from './src/navigation';
+
+import MainBttomTabNavigation from './src/navigation';
 
 
 export default function App() {
@@ -18,10 +20,8 @@ export default function App() {
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}> 
 				<SafeAreaProvider>
-					<StatusBar barStyle="light-content" />
-					<NavigationContainer>
-						<MainNav />
-					</NavigationContainer>
+					<StatusBar backgroundColor={theme.colors.primaryColor} barStyle="light-content" />
+						<MainBttomTabNavigation />
 				</SafeAreaProvider>
 			</PersistGate>
 		</Provider>

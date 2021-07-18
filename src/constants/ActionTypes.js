@@ -4,4 +4,9 @@ export const actionTypes = {
 
     //
     ADD_USER: 'ADD_USER',
+    UPDATE_SIGNIN_STATUS: 'UPDATE_SIGNIN_STATUS',
+    UPDATE_AUTH_TOKEN: 'UPDATE_AUTH_TOKEN',
+
+    //Splash
+    UPDATE_SPLASH: 'UPDATE_SPLASH',
 }

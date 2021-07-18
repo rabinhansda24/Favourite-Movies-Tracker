@@ -9,9 +9,9 @@ const theme = {
         italic: "Poppins-Italic"
     },
     colors: {
-        primaryColor: "",
-        secondaryColor: "",
-        primaryText: "",
+        primaryColor: "#B13D95",
+        secondaryColor: "#FFDE00",
+        primaryText: "#B13D95",
         secondaryText: "",
         labelColor: "",
         placeholderColor: "",
@@ -20,7 +20,8 @@ const theme = {
         success: "",
         error: "",
         info: "",
-        warning: ""
+        warning: "",
+        white: "#FFFFFF"
     }
 }
 
