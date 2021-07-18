@@ -77,7 +77,7 @@ const MoviesHomeScreen = (props) => {
                         <TouchableOpacity
                             onPress={() => onUpdateLike(item)}
                         >
-                            <Icon type="AntDesign" name="heart" size={26} color={liked.indexOf(id) > -1 ? theme.colors.primaryColor : "#808080"} />
+                            <Icon type="AntDesign" name="heart" size={26} color={liked.indexOf(item) > -1 ? theme.colors.primaryColor : "#808080"} />
                         </TouchableOpacity>
                     </View>
                     <View
