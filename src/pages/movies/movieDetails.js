@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { View, Text, TouchableOpacity, FlatList, StyleSheet, ScrollView, Image } from "react-native"
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from "react-redux";
@@ -12,6 +12,8 @@ import Icon from "../../components/Icon";
 
 import { updateLike } from "./MoviesActions";
 
+import { ToastContext } from "../../components/Toast/ToastContext";
+
 
 const MovieDetailsScreen = (props) => {
     const dispatch = useDispatch()
@@ -21,12 +23,15 @@ const MovieDetailsScreen = (props) => {
     const id = props.route.params.id
     const [movie, setMovie] = useState({})
 
+    const {Toast} = useContext(ToastContext)
+
     useEffect(() => {
         setMovie(movies[id])
     }, [])
 
     const onUpdateLike = () => {
         dispatch(updateLike(id))
+        Toast({message: "You have liked the movie.", type: "success"})
     }
 
     return (
