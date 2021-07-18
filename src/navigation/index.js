@@ -9,39 +9,13 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 import SplashScreen from '../pages/SplashScreen';
 import SigninScreen from '../pages/users/SigninScreen';
+import SignupScreen from '../pages/users/SignupScreen';
 import MoviesHomeScreen from '../pages/movies/moviesHomePage';
 import MovieDetailsScreen from '../pages/movies/movieDetails';
 import MoviesLikedScreen from '../pages/movies/moviesLiked';
 
-
 import Icon from '../components/Icon';
 import theme from '../theme';
-
-
-function HomeScreen() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Home!</Text>
-        </View>
-    );
-}
-
-function SettingsScreen() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Settings!</Text>
-        </View>
-    );
-}
-
-function AuthScreen() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Auth Screen!</Text>
-        </View>
-    );
-}
-
 
 const Stack = createStackNavigator();
 
@@ -57,6 +31,11 @@ const HomeStack = () => {
                 name="Home"
                 component={MoviesHomeScreen}
                 options={{ title: 'Home Page' }}
+            />
+            <Stack.Screen
+                name="MovieDetailsScreen"
+                component={MovieDetailsScreen}
+                options={{ title: 'Movie Details Screen' }}
             />
         </Stack.Navigator>
     )
@@ -86,6 +65,11 @@ const AuthStack = () => {
             <Stack.Screen
                 name="Signin"
                 component={SigninScreen}
+                options={{ title: 'Auth' }}
+            />
+            <Stack.Screen
+                name="Signup"
+                component={SignupScreen}
                 options={{ title: 'Auth' }}
             />
         </Stack.Navigator>
@@ -300,36 +284,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(MainBttomTabNavigation)
 
-
-const MainNav = (props) => {
-    return (
-        <Tab.Navigator
-            screenOptions={({ route }) => ({
-                tabBarIcon: ({ focused, color, size }) => {
-                    let iconName;
-
-                    if (route.name === 'Home') {
-                        iconName = focused
-                            ? 'ios-home-outline'
-                            : 'ios-home-outline';
-                    } else if (route.name === 'Settings') {
-                        iconName = focused ? 'ios-settings-outline' : 'ios-settings-outline';
-                    }
-
-                    // You can return any component that you like here!
-                    return <Icon type={"Ionicons"} name={iconName} size={size} color={color} />;
-
-                },
-            })}
-            tabBarOptions={{
-                activeTintColor: theme.colors.primaryColor,
-                inactiveTintColor: 'gray',
-            }}
-        >
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
-        </Tab.Navigator>
-    )
-}
 
 

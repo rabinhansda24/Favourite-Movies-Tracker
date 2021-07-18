@@ -7,17 +7,23 @@ import theme from "../../theme";
 
 import { updateSplash } from "./SplashscreenActions";
 
+import { setAPIToken } from "../../API";
+
 const SplashScreen = (props) => {
     const dispatch = useDispatch()
     const navigation = useNavigation();
 
     const displaySplash = useSelector(state => state.SplashScreenReducer.displaySplash)
+    const authToken = useSelector(state => state.usersReducer.authToken)
 
 
     useEffect(() => {
         setTimeout(() => {
             dispatch(updateSplash(false))
         }, 5000)
+        if(authToken !== "") {
+            setAPIToken(authToken)
+        }
     }, [])
 
     return(

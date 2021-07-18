@@ -1,6 +1,7 @@
 export const actionTypes = {
+    //Movies
     SET_MOVIES: 'SET_MOVIES',
-
+    UPDATE_LIKE: 'UPDATE_LIKE',
 
     //
     ADD_USER: 'ADD_USER',

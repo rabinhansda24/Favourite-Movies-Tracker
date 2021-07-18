@@ -9,8 +9,8 @@ import rootReducer from './reducers';
 const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
-    whitelist: ['usersReducer'], // Save
-    blacklist: [] // Does not save
+    whitelist: ['usersReducer', 'moviesReducer'], // Save
+    blacklist: ['SplashScreenReducer'] // Does not save
 }
 
 // Middleware: Redux Persist Persisted Reducer

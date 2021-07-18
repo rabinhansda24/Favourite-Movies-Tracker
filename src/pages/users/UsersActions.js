@@ -7,7 +7,14 @@ export const updateUserSignin = (status) => ({
 
 export const updateAuthToken = (token) => ({
     type: actionTypes.UPDATE_AUTH_TOKEN,
-    payoad: {
+    payload: {
         token: token
+    }
+})
+
+export const addUser = (user) => ({
+    type: actionTypes.ADD_USER,
+    payload: {
+        user: user
     }
 })

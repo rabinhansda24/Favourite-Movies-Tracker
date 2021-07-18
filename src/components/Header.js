@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         paddingBottom: hp(2),
         paddingTop: hp(6),
         paddingHorizontal: wp(5),
-        width: wp(100),
+        width: "100%",
         margin: 0,
         backgroundColor: theme.colors.primaryColor
     },
