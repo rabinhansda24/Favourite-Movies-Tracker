@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { View, Text, TouchableOpacity, TextInput, Image, Keyboard } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from "react-redux";
@@ -13,6 +13,8 @@ import Button from "../../components/Button";
 import { updateUserSignin, updateAuthToken } from "./UsersActions";
 import { updateSplash } from "../SplashScreen/SplashscreenActions";
 
+import { ToastContext } from "../../components/Toast/ToastContext";
+
 import { setAPIToken } from "../../API";
 
 const SigninScreen = (props) => {
@@ -21,6 +23,7 @@ const SigninScreen = (props) => {
     const isUserSignedIn = useSelector(state => state.usersReducer.isUserSignedIn)
     const user = useSelector(state => state.usersReducer.user)
     const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+    const {Toast} = useContext(ToastContext)
 
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
@@ -59,6 +62,8 @@ const SigninScreen = (props) => {
                 dispatch(updateSplash(false))
                 setAPIToken("Wookie2019")
                 dispatch(updateUserSignin(true))
+            } else {
+                Toast({message: "Please check your username or password and try again.", type: "error"})
             }
         }
     }
