@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { View, Text, TouchableOpacity, FlatList, StyleSheet, Dimensions } from "react-native"
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from "react-redux";
@@ -17,12 +17,15 @@ import Header from "../../components/Header";
 import Stars from "../../components/Stars";
 import Icon from "../../components/Icon";
 
+import { ToastContext } from "../../components/Toast/ToastContext";
+
 const { width: screenWidth } = Dimensions.get('window');
 
 
 const MoviesHomeScreen = (props) => {
     const dispatch = useDispatch()
     const navigation = useNavigation();
+    const {Toast} = useContext(ToastContext)
 
     const clasifications = useSelector(state => state.moviesReducer.clasifications)
     const movies = useSelector(state => state.moviesReducer.movies)
@@ -51,6 +54,7 @@ const MoviesHomeScreen = (props) => {
 
     const onUpdateLike = (id) => {
         dispatch(updateLike(id))
+        Toast({message: "You have liked the movie.", type: "success"})
     }
 
     const renderItem = ({ item, index }, parallaxProps) => {
