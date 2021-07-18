@@ -14,14 +14,20 @@ import theme from './src/theme';
 
 import MainBttomTabNavigation from './src/navigation';
 
+import { ToastProvider } from './src/components/Toast/ToastContext';
+import Toast from './src/components/Toast/Toast';
+
 
 export default function App() {
 	return (
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}> 
 				<SafeAreaProvider>
-					<StatusBar backgroundColor={theme.colors.primaryColor} barStyle="light-content" />
+					<ToastProvider>
+						<Toast />
+						<StatusBar backgroundColor={theme.colors.primaryColor} barStyle="light-content" />
 						<MainBttomTabNavigation />
+					</ToastProvider>
 				</SafeAreaProvider>
 			</PersistGate>
 		</Provider>

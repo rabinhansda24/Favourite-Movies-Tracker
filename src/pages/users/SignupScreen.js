@@ -9,6 +9,7 @@ import theme from "../../theme";
 import Icon from "../../components/Icon";
 import InputField from "../../components/InputField";
 import Button from "../../components/Button";
+import { ToastContext } from "../../components/Toast/ToastContext";
 
 import { addUser } from "./UsersActions";
 
@@ -16,6 +17,7 @@ const SignupScreen = (props) => {
     const dispatch = useDispatch()
     const navigation = useNavigation();
     const isUserSignedIn = useSelector(state => state.usersReducer.isUserSignedIn)
+    const {Toast} = useContext(ToastContext)
     
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
@@ -54,7 +56,8 @@ const SignupScreen = (props) => {
             password: password
         }
         dispatch(addUser(payload))
-        navigation.pop()
+        Toast({message: "Signup success.", type: "success"})
+        //navigation.pop()
     }
 
     return(
