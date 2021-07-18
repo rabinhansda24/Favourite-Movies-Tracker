@@ -107,6 +107,7 @@ const MoviesHomeScreen = (props) => {
 
         return (
             <View style={{ marginVertical: hp(2) }}>
+                <Text style={{paddingHorizontal: wp(10), paddingBottom: hp(2), fontFamily: theme.fonts.bold, }}>{item}</Text>
                 <Carousel
                     ref={carouselRef}
                     sliderWidth={screenWidth}
